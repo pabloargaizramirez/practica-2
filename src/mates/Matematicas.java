@@ -5,7 +5,7 @@ import java.util.Random;
 import java.util.Scanner;
 
 /**
- * *@see Matematicas Esta clase posee metodos para realizar pequeños cálculos matemáticos.
+ * * @see Matematicas Esta clase posee metodos para realizar pequeños cálculos matemáticos.
  * */
 
 public class Matematicas{
@@ -13,8 +13,8 @@ public class Matematicas{
      * * Genera una aproximación al número Pi mediante el método de
      * * Montecarlo. El parámetro `pasos` indica el número de puntos
      * * generado.
-     * *@param pasos indica el número de puntos (dardos) generados.
-     * *@return una aproximación del número pi.
+     * * @param pasos indica el número de puntos (dardos) generados.
+     * * @return una aproximación del número pi.
      * */
     public static double generarNumeroPiIterativo(long pasos){
         int dardosDisponibles = 1000000;
