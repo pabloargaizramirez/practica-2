@@ -17,7 +17,8 @@ public class Matematicas{
      * * @return una aproximación del número pi.
      * */
     public static double generarNumeroPiIterativo(long pasos){
-        int dardosDisponibles = 1000000;
+      	
+	//int dardosDisponibles = 1000000;
 	int dardosAcertados = 0;
 
 	//Asignamos que el centro del cuadrado está en el punto (0.5, 0.5)
@@ -26,7 +27,7 @@ public class Matematicas{
 	
 	Random random = new Random();	
 
-	for(int lanzamientos = 0; lanzamientos <= dardosDisponibles; lanzamientos++){
+	for(int lanzamientos = 0; lanzamientos <= pasos; lanzamientos++){
 
 		double Xrandom = random.nextDouble(); //Coordenada X del punto aleatorio
 		double Yrandom = random.nextDouble(); //Coordenada Y del punto aleatorio
@@ -41,6 +42,6 @@ public class Matematicas{
 
 		//Calcular la aproximación del número pi
 	}
-	return 4 * (double) dardosAcertados / (double) dardosDisponibles;
+	return 4 * (double) dardosAcertados / (double) pasos;
     }
 }
