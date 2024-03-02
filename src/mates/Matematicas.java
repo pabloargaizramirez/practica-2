@@ -9,32 +9,42 @@ import java.util.Scanner;
  * */
 
 public class Matematicas{
-	
-	public static long iterador(long pasos, int dardosLanzados, int dardosAcertados){
 
-		double centroX = 0.5;
-                double centroY = 0.5;
+	public static double getRandom(){
+		Random random = new Random();
+		return random.nextDouble();
+	}
+
+	public static Random random = new Random();
+
+	public static double Xrandom;
+	public static double Yrandom;
+	public static double distancia;
+	public static double centroX = 0.5;
+        public static double centroY = 0.5;
+	public static long iterador(long pasos, long dardosLanzados, long dardosAcertados){
+
+		//double centroX = 0.5;
+                //double centroY = 0.5;
 
                 //double Xrandom = random.nextDouble(); //Coordenada X del punto aleatorio
                 //double Yrandom = random.nextDouble(); //Coordenada Y del punto aleatorio
 
-		double Xrandom = Math.random(); //Coordenada X del punto aleatorio
-                double Yrandom = Math.random(); //Coordenada Y del punto aleatorio
+		Matematicas.Xrandom = Matematicas.random.nextDouble(); //denada X del punto aleatorio
+                Matematicas.Yrandom = Matematicas.random.nextDouble(); //Coordenada Y del punto aleatorio
 
                 //Calculamos la distancia del punto aleatorio al centro del cuadrado
-                double distancia = Math.sqrt((Xrandom - centroX) * (Xrandom - centroX) + (Yrandom - centroY) * (Yrandom - centroY));
+                Matematicas.distancia = Math.sqrt((Matematicas.Xrandom - Matematicas.centroX) * (Matematicas.Xrandom - Matematicas.centroX) + (Matematicas.Yrandom - Matematicas.centroY) * (Matematicas.Yrandom - Matematicas.centroY));
 
-		if(distancia <= 0.5){
+		if(Matematicas.distancia <= 0.5){
                         dardosAcertados++;
                 }
 
 		dardosLanzados++;
 
-		centroX = null;
-		centroY = null;
-		Xrandom = null;
-		Yrandom = null;
-		distancia = null;
+		System.out.println(dardosLanzados);
+		System.out.println(dardosAcertados);
+		System.out.println(pasos);
 
                 if (dardosLanzados >= pasos){
                         return dardosAcertados;
