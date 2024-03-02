@@ -48,7 +48,12 @@ public class Matematicas{
      * * @return una aproximación del número pi.
      * */
     public static double generarNumeroPiIterativo(long pasos){
+<<<<<<< HEAD
         
+=======
+      	
+	//int dardosDisponibles = 1000000;
+>>>>>>> d6c77cf8a7d7d8868607dfcd8a61cc964ff93461
 	int dardosAcertados = 0;
 
 	//Asignamos que el centro del cuadrado está en el punto (0.5, 0.5)
@@ -57,8 +62,11 @@ public class Matematicas{
 	
 	Random random = new Random();	
 
+<<<<<<< HEAD
 	
 
+=======
+>>>>>>> d6c77cf8a7d7d8868607dfcd8a61cc964ff93461
 	for(int lanzamientos = 0; lanzamientos <= pasos; lanzamientos++){
 
 		double Xrandom = random.nextDouble(); //Coordenada X del punto aleatorio
