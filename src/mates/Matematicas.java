@@ -10,37 +10,38 @@ import java.util.Scanner;
 
 public class Matematicas{
 
-	public static double getRandom(){
-		Random random = new Random();
-		return random.nextDouble();
-	}
 
-	public static Random random = new Random();
 
-	public static double Xrandom;
-	public static double Yrandom;
-	public static double distancia;
-	public static double centroX = 0.5;
-        public static double centroY = 0.5;
-	public static long iterador(long pasos, long dardosLanzados, long dardosAcertados){
+	public static long iterador(long pasos, long dardosLanzados, long dardosAcertados, Random random, long size){
 
-		//double centroX = 0.5;
-                //double centroY = 0.5;
+        	//Asignamos que el centro del cuadrado está en el punto (0.5, 0.5)
+        	double centroX = 0.5;
+        	double centroY = 0.5;
+		long safeSize = size;
 
-                //double Xrandom = random.nextDouble(); //Coordenada X del punto aleatorio
-                //double Yrandom = random.nextDouble(); //Coordenada Y del punto aleatorio
+		if ((pasos - dardosLanzados) < size){
+			safeSize = pasos - dardosLanzados;
+		}
 
-		Matematicas.Xrandom = Matematicas.random.nextDouble(); //denada X del punto aleatorio
-                Matematicas.Yrandom = Matematicas.random.nextDouble(); //Coordenada Y del punto aleatorio
+		System.out.println(safeSize);
 
-                //Calculamos la distancia del punto aleatorio al centro del cuadrado
-                Matematicas.distancia = Math.sqrt((Matematicas.Xrandom - Matematicas.centroX) * (Matematicas.Xrandom - Matematicas.centroX) + (Matematicas.Yrandom - Matematicas.centroY) * (Matematicas.Yrandom - Matematicas.centroY));
+        	for(int lanzamientos = 0; lanzamientos < safeSize; lanzamientos++){
 
-		if(Matematicas.distancia <= 0.5){
+                	double Xrandom = random.nextDouble(); //Coordenada X del punto aleatorio
+                	double Yrandom = random.nextDouble(); //Coordenada Y del punto aleatorio
+
+                	//Calculamos la distancia del punto aleatorio al centro del cuadrado
+                	double distancia = Math.sqrt((Xrandom - centroX) * (Xrandom - centroX) + (Yrandom - centroY) * (Yrandom - centroY));
+
+                	//Si la distancia que calculamos es menor o igual a 0.5; el punto aleatorio habrá caído en el círculo
+                if(distancia <= 0.5){
                         dardosAcertados++;
                 }
 
-		dardosLanzados++;
+                //Calcular la aproximación del número pi
+        }
+
+		dardosLanzados = dardosLanzados + safeSize;
 
 		System.out.println(dardosLanzados);
 		System.out.println(dardosAcertados);
@@ -49,7 +50,7 @@ public class Matematicas{
                 if (dardosLanzados >= pasos){
                         return dardosAcertados;
                 } else {
-                        return Matematicas.iterador(pasos, dardosLanzados, dardosAcertados);
+                        return Matematicas.iterador(pasos, dardosLanzados, dardosAcertados, random, size);
                 }
 	}
 
@@ -57,7 +58,13 @@ public class Matematicas{
 				
         	Random random = new Random();
 
-		return 4 * (double) Matematicas.iterador(pasos, 0, 0) / (double) pasos;
+		long size = pasos;
+
+		if (pasos > 2000){
+			size = pasos / 2000;
+		}
+
+		return 4 * (double) Matematicas.iterador(pasos, 0, 0, random, size) / (double) pasos;
 	}
     /**
      * * Genera una aproximación al número Pi mediante el método de
