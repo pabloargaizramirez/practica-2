@@ -18,10 +18,10 @@
 ####
 <a name="utilizacion"></a>
 ### Utilizacion del programa
-#### Para ejecutar el programa se escribe "java aplicacion.Principal" y seguido, un número de pasos, que será el número de puntos/dardos generados (cuanto mayor sea este número, más precisión).
+#### Para ejecutar el programa se escribe "java -jar pi.jar" y seguido, un número de pasos, que será el número de puntos/dardos generados (cuanto mayor sea este número, más precisión).
 #### Un ejemplo de sentencia quedaría de la siguiente manera:
 ```
-java aplicacion.Principal 1000000
+java -jar pi.jar 1000000
 ```
 #### Para compilar el código se puede hacer de dos maneras:
 #### podemos escribir "javac" y seguido la ruta del fichero que queremos compilar
